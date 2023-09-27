@@ -73,7 +73,10 @@ const teams = [
 
       <MyOrg cambiarMostrar={cambiarMostrar}/>
       {
-        teams.map((equipo) => <Team datos={equipo} key={equipo.titulo} colaboradores={colaboradores}/>)
+        teams.map((equipo) => <Team 
+        datos={equipo} 
+        key={equipo.titulo} 
+        colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}/>)
       }
     </div>
   );
