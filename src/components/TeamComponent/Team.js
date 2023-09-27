@@ -13,7 +13,10 @@ const {colaboradores} = props
             <h3 style={{borderColor: colorPrimario}}>{titulo}</h3>
             <div className="colab">
                 {
-                    colaboradores.map((colaborador, index) => <Colaborator datos={colaborador} key={index}/>)
+                    colaboradores.map((colaborador, index) => <Colaborator 
+                    datos={colaborador} 
+                    key={index} 
+                    colorPrimario={colorPrimario}/>)
                 }
             </div>
             </section>

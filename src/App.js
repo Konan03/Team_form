@@ -5,6 +5,7 @@ import Header from "./components/headerComponent/Header";
 import Form from './components/FormComponent/Form';
 import MyOrg from './components/MyOrg/MyOrg';
 import Team from './components/TeamComponent/Team';
+import Footer from './components/FooterComponent/Footer';
 
 function App() {
 const [mostrarFrom, actualizarMostrar] = useState(false)
@@ -78,6 +79,8 @@ const teams = [
         key={equipo.titulo} 
         colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}/>)
       }
+
+      <Footer/>
     </div>
   );
 }
