@@ -6,7 +6,7 @@ const Footer = () =>{
             <a href='https://www.facebook.com/josemanuel.caicedoperdomo/'>
                 <img src="/img/facebook.png" alt='Facebook' />
             </a>
-            <a href=''>
+            <a href='https://twitter.com/KonanMC03'>
                 <img src="/img/twitter.png" alt='twitter' />
             </a>
             <a href='https://www.instagram.com/_konanmc/'>
