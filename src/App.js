@@ -73,7 +73,7 @@ const teams = [
 
       <MyOrg cambiarMostrar={cambiarMostrar}/>
       {
-        teams.map((equipo) => <Team datos={equipo} key={equipo.titulo}/>)
+        teams.map((equipo) => <Team datos={equipo} key={equipo.titulo} colaboradores={colaboradores}/>)
       }
     </div>
   );
