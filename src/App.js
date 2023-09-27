@@ -1,23 +1,68 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Header from "./components/headerComponent/Header";
+import Form from './components/FormComponent/Form';
+import MyOrg from './components/MyOrg/MyOrg';
+import Team from './components/TeamComponent/Team';
 
 function App() {
+const [mostrarFrom, actualizarMostrar] = useState(false)
+
+//condicion && semuestra
+
+const cambiarMostrar = () =>{
+  actualizarMostrar(!mostrarFrom)
+}
+
+//lista de equipos
+const teams = [
+  {
+    titulo: "Programacion",
+    colorPrimario: "#57C278",
+    colorSecundario: "#D9F7E9"
+  }, 
+  {
+    titulo: "Front End",
+    colorPrimario: "#82CFFA",
+    colorSecundario: "#E8F8FF"
+  },
+  {
+    titulo: "Data Science",
+    colorPrimario: "#A6D157",
+    colorSecundario: "#F0F8E2"
+  },
+  {
+    titulo: "Devops",
+    colorPrimario: "#E06B69",
+    colorSecundario: "#FDE7E8"
+  },
+  {
+    titulo: "UX y Diseño",
+    colorPrimario: "#DB6EBF",
+    colorSecundario: "#FAE9F5"
+  },
+  {
+    titulo: "Movil",
+    colorPrimario: "#FFBA05",
+    colorSecundario: "#FFF5D9"
+  },
+  {
+    titulo: "Innovacion y Gestion",
+    colorPrimario: "#FF8A29",
+    colorSecundario: "#FFEEDF"
+  },
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Header/>
+      {/*mostrarFrom ? <Form/> : <></>*/}
+      {mostrarFrom && <Form  teams={teams.map((team) => team.titulo)}/>}
+      <MyOrg cambiarMostrar={cambiarMostrar}/>
+      {
+        teams.map((equipo) => <Team datos={equipo} key={equipo.titulo}/>)
+      }
     </div>
   );
 }
