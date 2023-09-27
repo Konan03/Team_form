@@ -8,11 +8,18 @@ import Team from './components/TeamComponent/Team';
 
 function App() {
 const [mostrarFrom, actualizarMostrar] = useState(false)
+const [colaboradores, actualizarColaboradores] = useState([])
 
 //condicion && semuestra
 
 const cambiarMostrar = () =>{
   actualizarMostrar(!mostrarFrom)
+}
+
+const registrarColaborador = (colaborador) =>{
+  console.log(colaborador)
+  //spread operator
+  actualizarColaboradores([...colaboradores, colaborador])
 }
 
 //lista de equipos
@@ -58,7 +65,12 @@ const teams = [
     <div >
       <Header/>
       {/*mostrarFrom ? <Form/> : <></>*/}
-      {mostrarFrom && <Form  teams={teams.map((team) => team.titulo)}/>}
+      {mostrarFrom && <Form 
+         teams={teams.map((team) => team.titulo)}
+         registrarColaborador={registrarColaborador} 
+        />
+      }
+
       <MyOrg cambiarMostrar={cambiarMostrar}/>
       {
         teams.map((equipo) => <Team datos={equipo} key={equipo.titulo}/>)

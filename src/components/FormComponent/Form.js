@@ -11,6 +11,8 @@ const Form = (props) => {
     const [foto, setFoto] = useState("")
     const [equipo, setEquipo] = useState("")
 
+    const{registrarColaborador} = props
+
     const manejarEnvio = (e) =>{
         e.preventDefault()
         let datosAEnviar = {
@@ -20,7 +22,7 @@ const Form = (props) => {
             equipo: equipo
         }
 
-        console.log(datosAEnviar)
+        registrarColaborador(datosAEnviar)
     }
 
     return <section className="form">
