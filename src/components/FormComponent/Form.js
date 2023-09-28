@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Form.css";
-import TextArea from "../TextAreaComponent/TextArea";
+import Area from "../AreaComponent/Area";
 import ListOptions from "../ListOptionsComponent/ListOptions";
 import Button from "../ButtonComponent/Button";
 
@@ -35,19 +35,19 @@ const Form = (props) => {
     return <section className="form">
         <form onSubmit={manejarEnvio}>
             <h2>Rellena el formulario para crear el colaborador.</h2>
-            <TextArea 
+            <Area 
                 titulo="Nombre" 
                 placeholder="Ingresar nombre" 
                 required valor={nombre} 
                 actualizarValor={setNombre}
             />
-            <TextArea 
+            <Area 
                 titulo="Puesto" 
                 placeholder="Ingresar puesto" 
                 required valor={puesto} 
                 actualizarValor={setPuesto}
             />
-            <TextArea 
+            <Area 
                 titulo="Foto" 
                 placeholder="Ingresar enlace de foto" 
                 required valor={foto} 
@@ -62,17 +62,18 @@ const Form = (props) => {
         </form>
         <form onSubmit={manejarNuevoEquipo}>
             <h2>Rellena el formulario para crear el equipo.</h2>
-            <TextArea 
+            <Area 
                 titulo="Titulo" 
                 placeholder="Ingresar titulo" 
                 required valor={titulo} 
                 actualizarValor={actualizarTitulo}
             />
-            <TextArea 
+            <Area 
                 titulo="Color" 
                 placeholder="Ingresar el color en hex" 
                 required valor={color} 
                 actualizarValor={actualizarColor}
+                type="color"
             />
             <Button>Registrar equipo</Button>
         </form>

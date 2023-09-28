@@ -1,22 +1,26 @@
 import { useState } from "react"
-import "./TextArea.css"
+import "./Area.css"
 
-const TextArea = (props) =>{
+const Area = (props) =>{
     const placeholderModified = `${props.placeholder}...`
+
+    //destructuracion
+    const {type = "text"} = props
 
     const manejarCambio = (e) => {
         props.actualizarValor(e.target.value)
     }
 
-    return <div className="text-area">
+    return <div className={`campo campo-${type}`}>
         <label>{props.titulo}</label>
         <input 
             placeholder={placeholderModified}  
             required={props.required}
             value={props.valor}
-            onChange={manejarCambio}    
+            onChange={manejarCambio}   
+            type={type} 
         />
     </div>
 }
 
-export default TextArea;
+export default Area;
