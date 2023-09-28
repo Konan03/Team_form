@@ -9,22 +9,38 @@ import Footer from './components/FooterComponent/Footer';
 
 function App() {
 const [mostrarFrom, actualizarMostrar] = useState(false)
-const [colaboradores, actualizarColaboradores] = useState([])
-
-//condicion && semuestra
-
-const cambiarMostrar = () =>{
-  actualizarMostrar(!mostrarFrom)
+const [colaboradores, actualizarColaboradores] = useState([{
+  equipo: "Front End",
+  foto: "https://github.com/harlandlohora.png",
+  nombre: "Harland Lohora",
+  puesto: "Instructor"
+},
+{
+  equipo: "Programacion",
+  foto: "https://github.com/genesysaluralatam.png",
+  nombre: "Genesys Rondón",
+  puesto: "Desarrolladora de software e instructora"
+},
+{
+  equipo: "UX y Diseño",
+  foto: "https://github.com/JeanmarieAluraLatam.png",
+  nombre: "Jeanmarie Quijada",
+  puesto: "Instructora en Alura Latam"
+},
+{
+  equipo: "Programacion",
+  foto: "https://github.com/christianpva.png",
+  nombre: "Christian Velasco",
+  puesto: "Head de Alura e Instructor"
+},
+{
+  equipo: "Innovacion y Gestion",
+  foto: "https://github.com/JoseDarioGonzalezCha.png",
+  nombre: "Jose Gonzalez",
+  puesto: "Dev FullStack"
 }
-
-const registrarColaborador = (colaborador) =>{
-  console.log(colaborador)
-  //spread operator
-  actualizarColaboradores([...colaboradores, colaborador])
-}
-
-//lista de equipos
-const teams = [
+])
+const [teams, actualizarEquipos] = useState([
   {
     titulo: "Programacion",
     colorPrimario: "#57C278",
@@ -60,7 +76,39 @@ const teams = [
     colorPrimario: "#FF8A29",
     colorSecundario: "#FFEEDF"
   },
-  ]
+  ])
+
+//condicion && semuestra
+
+const cambiarMostrar = () =>{
+  actualizarMostrar(!mostrarFrom)
+}
+
+const registrarColaborador = (colaborador) =>{
+  console.log(colaborador)
+  //spread operator
+  actualizarColaboradores([...colaboradores, colaborador])
+}
+
+const eliminarColaborador = () =>{
+  console.log("eliminarrr")
+}
+
+//actualizar colo de equipo
+const actualizarColor = (color, titulo) =>{
+  console.log("Actualizar: ", color, titulo)
+  const equiposActualizados = teams.map((equipo) =>{
+    if(equipo.titulo === titulo){
+      equipo.colorPrimario = color
+    }
+    return equipo
+  })
+
+  actualizarEquipos(equiposActualizados)
+}
+
+//lista de equipos
+
 
   return (
     <div >
@@ -77,7 +125,10 @@ const teams = [
         teams.map((equipo) => <Team 
         datos={equipo} 
         key={equipo.titulo} 
-        colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}/>)
+        colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+        eliminarColaborador={eliminarColaborador}
+        actualizarColor={actualizarColor}
+        />)
       }
 
       <Footer/>
